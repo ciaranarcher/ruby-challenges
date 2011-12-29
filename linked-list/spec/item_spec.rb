@@ -2,8 +2,7 @@ require_relative '../lib/item'
 require 'log_buddy'
 
 module RubyChallenges
-
-describe Item do
+	describe Item do
 		it 'should be created' do
 			Item.new
 		end
@@ -37,7 +36,5 @@ describe Item do
 				@item.prev_item.nil?.should == true
 			end
 		end
-
 	end
-
 end
