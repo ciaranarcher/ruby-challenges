@@ -1,4 +1,5 @@
 require_relative '../lib/item'
+require 'log_buddy'
 
 module RubyChallenges
 
@@ -11,7 +12,6 @@ describe Item do
 			    @item = Item.new
 			end
 			it 'should respond to value message' do
-				@item = Item.new
 				@item.should respond_to :value
 			end
 			it 'should accept a string' do
@@ -23,6 +23,18 @@ describe Item do
 				test_val = 1234 
 				@item.value = test_val
 				@item.value.should == test_val
+			end
+			it 'should respond to next_item message' do
+				@item.should respond_to :next_item
+			end
+			it 'should respond to prev_item message' do
+				@item.should respond_to :prev_item
+			end
+			it 'should repond to next_item with a reference to nil' do
+				@item.next_item.nil?.should == true
+			end
+			it 'should repond to prev_item with a reference to nil' do
+				@item.prev_item.nil?.should == true
 			end
 		end
 
