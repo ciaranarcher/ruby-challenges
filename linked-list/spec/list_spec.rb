@@ -51,6 +51,36 @@ module RubyChallenges
         @list.to_a.should == [1, 3, 2]
         @list.length.should == 3
       end
+      it 'should allow an item be added after index 2' do
+        item = Item.new
+        item.value = 4
+        @list.add_after(2, item)
+        @list.length.should == 4
+      end
+      it 'should have 4 items matching [1, 3, 2, 4]' do
+        @list.to_a.should == [1, 3, 2, 4]
+        @list.length.should == 4
+      end
+      it 'should allow an item be added after index 1' do
+        item = Item.new
+        item.value = 5
+        @list.add_after(1, item)
+        @list.length.should == 5
+      end
+      it 'should have 5 items matching [1, 3, 5, 2, 4]' do
+        @list.to_a.should == [1, 3, 5, 2, 4]
+        @list.length.should == 5
+      end
+      it 'should allow an item be added after last index' do
+        item = Item.new
+        item.value = 6
+        @list.add_after(@list.length-1, item)
+        @list.length.should == 6
+      end
+      it 'should have 6 items matching [1, 3, 5, 2, 4, 6]' do
+        @list.to_a.should == [1, 3, 5, 2, 4, 6]
+        @list.length.should == 6
+      end
     end
   end
 end
