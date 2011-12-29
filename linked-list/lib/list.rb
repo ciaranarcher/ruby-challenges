@@ -1,13 +1,4 @@
-# 
-#
-#
-#
-#
-#
-#
-#
-#
-#
+require 'log_buddy'
 
 module RubyChallenges
   class List
@@ -17,7 +8,8 @@ module RubyChallenges
     def initialize
       @length = 0
     end
-
+    
+    # add at end
     def <<(item)
       if @first.nil?
         # no items on the list
@@ -38,6 +30,31 @@ module RubyChallenges
       end
     end
 
+    def add_after(pos, item)
+      raise IndexError if pos > (@length - 1)
+      
+      if @length == 0 
+        # insert at first position
+        self << item
+      else
+        list_item = @first
+        
+        (1..pos).each do |i|
+          list_item = list_item.next_item
+          if i == pos
+            d {i; list_item.value}
+            break
+          end
+        end  
+
+        item.prev_item = list_item
+        item.next_item = list_item.next_item
+        list_item.next_item = item
+        
+        @length += 1
+      end
+    end
+
     def to_a
       arr = []
       list_item = @first
@@ -48,5 +65,8 @@ module RubyChallenges
       end
       arr
     end
+
+    
+
   end
 end
