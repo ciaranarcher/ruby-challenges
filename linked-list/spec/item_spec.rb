@@ -2,7 +2,7 @@ require_relative '../lib/item'
 
 module RubyChallenges
 
-	describe Item do
+describe Item do
 		it 'should be created' do
 			Item.new
 		end
