@@ -9,23 +9,24 @@ module RubyChallenges
       TreeWalker.new
     end
     describe 'when there is an existing tree' do
-      before(:all) do
-        @root_node = Tree::TreeNode.new('root', 'A') 
-        child1 = Tree::TreeNode.new('child1', 'B')
-        child1 << Tree::TreeNode.new('grandchild1', 'D')
-        child1 << Tree::TreeNode.new('grandchild2', 'E')
-        @root_node << child1
-        @root_node << Tree::TreeNode.new('child2', 'C')
-        @root_node.print_tree
-      end
       before(:each) do
+        @root_node = Tree::TreeNode.new('A', 'A') 
+        child1 = Tree::TreeNode.new('B', 'B')
+        child1 << Tree::TreeNode.new('D', 'D')
+        child1 << Tree::TreeNode.new('E', 'E')
+        @root_node << child1
+        @root_node << Tree::TreeNode.new('C', 'C')
+
         @walker = TreeWalker.new
+      end
+      it 'should look like example above' do
+        @root_node.print_tree
       end
       it 'should respond to traverse' do
         @walker.should respond_to :traverse
       end
-      it 'should return the value of the root node of the tree' do
-        @walker.traverse(@root_node).should include('A')
+      it 'should recursively traverse the tree returning ABDEC' do
+        @walker.traverse(@root_node).should == 'ABDEC'
       end
     end
   end
