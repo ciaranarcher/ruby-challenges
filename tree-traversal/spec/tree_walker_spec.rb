@@ -25,7 +25,7 @@ module RubyChallenges
         @walker.should respond_to :traverse
       end
       it 'should return the value of the root node of the tree' do
-        @walker.traverse(@root_node).should == 'A'
+        @walker.traverse(@root_node).should include('A')
       end
     end
   end
