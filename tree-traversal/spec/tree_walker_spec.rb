@@ -16,7 +16,6 @@ module RubyChallenges
         child1 << Tree::TreeNode.new('E', 'E')
         @root_node << child1
         @root_node << Tree::TreeNode.new('C', 'C')
-
         @walker = TreeWalker.new
       end
       it 'should look like example above' do
@@ -27,6 +26,9 @@ module RubyChallenges
       end
       it 'should recursively traverse the tree returning ABDEC' do
         @walker.traverse(@root_node).should == 'ABDEC'
+      end
+      it 'should recursively traverse the tree giving importance to level thus returning A|BC|DE|' do
+        @walker.traverse(@root_node, true).should == 'A|BC|DE|'
       end
     end
   end
