@@ -60,8 +60,5 @@ module RubyChallenges
       end
       arr
     end
-
-    
-
   end
 end
