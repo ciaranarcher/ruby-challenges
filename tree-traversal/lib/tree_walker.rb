@@ -44,6 +44,5 @@ module RubyChallenges
       end
       values
     end
-
   end
 end

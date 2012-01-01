@@ -50,14 +50,9 @@ module RubyChallenges
       @length += 1
     end
 
-    def to_a
-      arr = []
-      list_item = @first
-      arr << list_item.value
-      while !list_item.next_item.nil?
-        list_item = list_item.next_item
-        arr << list_item.value
-      end
+    def to_a(item=@first, arr=[])
+      arr << item.value
+      to_a(item.next_item, arr) unless item.next_item.nil?
       arr
     end
   end
