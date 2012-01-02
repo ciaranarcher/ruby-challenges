@@ -31,10 +31,16 @@ module RubyChallenges
         @sorter = BubbleSort.new
         @target1 = [1, 3, 2]
         @target2 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        @target1_sorted = [1, 2, 3]
+        @target2_sorted = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
       end
-      it 'should return a sorted array' do
-        @sorter.sort(@target1).should == [1, 2, 3]
-        @sorter.sort(@target2).should == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      it 'should return a sorted array using iterative mode' do
+        @sorter.sort(@target1, 'iterative').should == @target1_sorted
+        @sorter.sort(@target2, 'iterative').should == @target2_sorted
+      end
+      it 'should return a sorted array using recursive mode' do
+        @sorter.sort(@target1, 'recursive').should == @target1_sorted
+        @sorter.sort(@target2, 'recursive').should == @target2_sorted
       end
     end
   end

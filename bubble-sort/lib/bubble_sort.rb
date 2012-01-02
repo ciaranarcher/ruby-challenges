@@ -16,18 +16,15 @@ module RubyChallenges
           swap_done = compare_values_recursive(arr)
         end while swap_done 
       end
-      
       arr
     end
 
     private
 
     def compare_values_recursive(arr, i=0, swap_done=false)
-    
       if (i + 1) < arr.length && i < arr.length
-        # try swap elements
-        if arr[i + 1] > arr[i]
-          swapped = swap_elements(arr[i], arr[i + 1])
+        if arr[i] > arr[i + 1]
+          swapped = swap_elements(arr, i, i + 1)
           swap_done = true if swapped
         end 
         compare_values_recursive(arr, i + 1, swap_done)
@@ -37,7 +34,6 @@ module RubyChallenges
 
     def compare_values_iterative(arr)
       swapped = false
-      
       for i in (0..arr.length - 1)
         begin
           swap_elements(arr, i, i + 1) 
