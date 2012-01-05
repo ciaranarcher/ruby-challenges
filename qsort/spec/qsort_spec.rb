@@ -32,8 +32,9 @@ module RubyChallenges
         @sorter = QSort.new
         @target = [1, 3, 2]
       end
-      it 'should return a pivot value' do 
-        
+      pending 'should return a pivot value' do 
+        @sorter.arr = @target
+        @sorter.get_pivot.should > 0
       end
       it 'should return a sorted array' do
         @sorter.arr = @target
