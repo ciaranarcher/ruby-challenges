@@ -24,10 +24,10 @@ module RubyChallenges
       it 'should respond to traverse' do
         @walker.should respond_to :traverse
       end
-      it 'should recursively traverse the tree returning ABDEC' do
+      it 'should recursively traverse the tree depth-first returning ABDEC' do
         @walker.traverse(@root_node).should == 'ABDEC'
       end
-      it 'should recursively traverse the tree giving importance to level thus returning A|BC|DE|' do
+      it 'should recursively traverse the breath-first returning A|BC|DE|' do
         @walker.traverse(@root_node, true).should == 'A|BC|DE|'
       end
     end

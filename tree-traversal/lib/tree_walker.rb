@@ -5,26 +5,26 @@ module RubyChallenges
     def initalize
     end
 
-    def traverse(root, levels=false)
-      if levels
-        traverse_children_level_first(root)
+    def traverse(root, breath_first=false)
+      if breath_first
+        traverse_children_breath_first(root)
       else
-        traverse_children(root)
+        traverse_children_depth_first(root)
       end
     end
 
     private 
 
-    def traverse_children(node)
+    def traverse_children_depth_first(node)
       values = node.content
       children = node.children
       children.each do |child|
-        values << traverse_children(child)
+        values << traverse_children_depth_first(child)
       end
       values
     end
 
-    def traverse_children_level_first(node)
+    def traverse_children_breath_first(node)
       
       # check if the current node is the root, and store value if so
       values = ''
@@ -40,7 +40,7 @@ module RubyChallenges
 
       # traverse each child recursively
       children.each do |child|
-        values << traverse_children_level_first(child)
+        values << traverse_children_breath_first(child)
       end
       values
     end
