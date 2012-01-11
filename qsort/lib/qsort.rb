@@ -5,7 +5,6 @@ module RubyChallenges
     attr_accessor :arr
 
     def initialize
-      self
     end
     
     def sort(arr=@arr)
