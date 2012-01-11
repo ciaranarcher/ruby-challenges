@@ -15,7 +15,7 @@ module RubyChallenges
         begin
           swap_done = compare_values_recursive(arr)
         end while swap_done 
-      endx§
+      end
       arr
     end
 
